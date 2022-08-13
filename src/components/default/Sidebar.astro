@@ -1,0 +1,19 @@
+---
+const githubimage = "https://avatars.githubusercontent.com/u/57449485?v=4"
+
+const list =  [{
+    title : "Project"
+},{
+    title : "Blog"
+}]
+---
+<aside class="sticky top-0 h-1 w-60 m-4 ">
+    <div class="m-1 rounded-lg bg-teal-200 p-2 shadow-xl">
+        <img src={githubimage} class="rounded-full w-36">
+        <p>NJoyShadow</p>
+        <ul class="divide-y divide-emerald-50">
+            {list.map(x => (<li class="">{x.title}</li>))}
+            <li></li>
+        </ul>
+    </div>
+</aside>

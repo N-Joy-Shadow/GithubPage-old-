@@ -1,0 +1,29 @@
+---
+import Footer from "../components/default/Footer.astro";
+import Navbar from "../components/default/Navbar.astro";
+import Sidebar from "../components/default/Sidebar.astro";
+
+
+const { title , description } = Astro.props
+---
+<html>
+    <head>
+        <title>{title}</title>
+        <meta name="description" content={description}>
+        <meta charset="utf-8">
+    </head>
+    <Navbar/>
+    <body >
+        <div class="flex flex-row">
+            <Sidebar/>
+            <div class="w-full ">
+                <slot/>
+            </div>
+        </div>
+    </body>
+    <Footer/>
+    <style>
+
+    </style>
+
+</html>
