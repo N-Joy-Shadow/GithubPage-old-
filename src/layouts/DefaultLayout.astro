@@ -15,18 +15,36 @@ const { title , description } = Astro.props
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
     </head>
-    <Navbar/>
-    <body >
-        <div class="flex flex-row">
+    <body>
+        <div class="pb-14 relative wrap">
+        <Navbar/>
+        <div class="flex flex-row ">
             <Sidebar/>
             <div class="w-full ">
                 <slot/>
             </div>
+            <Footer/>
         </div>
+    </div>
     </body>
-    <Footer/>
     <style>
+        .wrap{
+            min-height: 100%;
+        }
+        html,body {
+            height: 100%;
+        }
 
-    </style>
+        @font-face {
+            font-family: 'NanumSquareRound';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        html > body{
+            font-family: "NanumSquareRound",serif;
+        }
+     </style>
 
 </html>

@@ -8,7 +8,11 @@ module.exports = {
 		}
 	},
 	theme: {
-		extend: {},
+		extend: {
+			fontFamily :{
+				'nanum' : ['NanumSquareRound']
+			}
+		},
 	},
 	plugins: [require('@tailwindcss/typography')],
 

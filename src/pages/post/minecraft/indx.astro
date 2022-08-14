@@ -1,13 +1,11 @@
 ---
-import ListCard from "../../../components/post-list/ListCard.astro";
+import ListCard from "../../../components/post/list/ListCard.astro";
 import PostListLayout from "../../../layouts/post/PostListLayout.astro";
 import Index from "../../../utils/IndexMDX";
 
 
 const posts = await Astro.glob('./**/*.mdx');
 const items = Index(posts)
-
-
 ---
 
 <PostListLayout item={items} head={"마인크래프트"}>
@@ -15,7 +13,7 @@ const items = Index(posts)
     {posts.map(x=>
     <li>
         <ListCard url={x.url} title={x.frontmatter.title} image={x.frontmatter.image}
-        description={x.frontmatter.description} date={x.frontmatter.date}/>
+        description={x.frontmatter.description} date={x.frontmatter.date} tag={x.frontmatter.tag}/>
     </li>)}
 </ul>
 </PostListLayout>

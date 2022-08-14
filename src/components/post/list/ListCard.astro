@@ -1,0 +1,29 @@
+---
+import ItemTag from "../ItemTag.astro";
+
+const { title, description,image,date,url,tag } = Astro.props
+let tags = tag
+if(tags != undefined){
+    tags = tag.split(",")
+}
+---
+
+<div class="border-2 rounded-xl border-teal-200 shadow-md m-2">
+    <a href={url}>
+        <div class="flex flex-row">
+            <img src={image} class="w-40 h-40 mx-2">
+            <div class="w-full block mr-10">
+                <div class="divide-y-2 divide-teal-200 py-2">
+                    <h1 class="text-4xl">{title}</h1>
+                    <p class="text-start">Date : {date}</p>
+                </div>
+                <div class="inline-block">
+                    <p class="text-lg truncate relative whitespace-pre-wrap">{description}</p>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div class="grid grid-flow-col auto-cols-max gap-3 m-4">
+        {tags.map((x :string) =>(<ItemTag tag={x}></ItemTag>))}
+    </div>
+</div>

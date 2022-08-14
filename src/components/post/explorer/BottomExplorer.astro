@@ -1,12 +1,21 @@
 ---
 import RouteBtn from "./RouteBtn.astro";
+import RouteLeftBtn from "./RouteLeftBtn.astro";
 
-const { route } = Astro.props
+export interface routeProps {
+    next : string,
+    before :string,
+    home : string
+}
+
+
+const { path, subpath ,pwd } = Astro.props
+
 ---
 
 <div class="w-full flex justify-between mt-4 bg-transparent">
     <div>
-
+        <RouteLeftBtn url={"/"} name={"home"}/>
     </div>
     <div class="flex flex-row">
         <RouteBtn url={"/"} name={"before"}/>

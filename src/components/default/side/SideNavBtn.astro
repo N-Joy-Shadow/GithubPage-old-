@@ -1,0 +1,14 @@
+---
+const { title ,url } = Astro.props
+---
+<a href={url} class="justify-center items-center">
+    <div class="py-1 side-btn">
+        <p class="text-center">{title}</p>
+    </div>
+    <style>
+        .side-btn{
+        }
+        .side-btn:hover{
+        }
+    </style>
+</a>

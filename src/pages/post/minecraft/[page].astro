@@ -1,0 +1,40 @@
+---
+import ListCard from "../../../components/post/list/ListCard.astro";
+import PostListLayout from "../../../layouts/post/PostListLayout.astro";
+import Index from "../../../utils/IndexMDX";
+
+
+const posts = await Astro.glob('./**/*.mdx');
+    const items = Index(posts)
+export async function getStaticPaths({ paginate }) {
+    const posts = await Astro.glob('./**/*.mdx');
+  const astronautPages = [{
+    astronaut: 'Neil Armstrong',
+  }, {
+    astronaut: 'Buzz Aldrin',
+  }, {
+    astronaut: 'Sally Ride',
+  }, {
+    astronaut: 'John Glenn',
+  }];
+  // Generate pages from our array of astronauts, with 2 to a page
+  return paginate(posts, { pageSize: 5 });
+}
+// All paginated data is passed on the "page" prop
+const { page } = Astro.props;
+---
+
+<!--Display the current page number. Astro.params.page can also be used!-->
+<PostListLayout item={items} head={"마인크래프트"}>
+    <ul>
+        {page.data.map((x,i)=>
+        <li>
+            <ListCard url={x.url} title={x.frontmatter.title} image={x.frontmatter.image}
+            description={x.frontmatter.description} date={x.frontmatter.date} tag={x.frontmatter.tag}/>
+        </li>)}
+    </ul>
+    <h1>Page {page.currentPage}</h1>
+    {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+    {page.url.next ? <a href={page.url.next}>Next</a> : null}
+</PostListLayout>
+
