@@ -1,14 +1,26 @@
 ---
+import PostSide from "../../components/post-side/PostSide.astro";
 import DefaultLayout from "../DefaultLayout.astro";
 
-const { frontmatter } = Astro.props                     
-
+const { frontmatter } = Astro.props
 ---
 
 <DefaultLayout title={frontmatter.title} description={frontmatter.description}>
-    <div class="w-full">
-        <h1>{frontmatter.title}</h1>
-        <hr>
-        <slot/>
+    <div class="w-full flex flex-row">
+        <div class="grow  rounded-xl bg-teal-50 m-1 p-2">
+            <div class="divide-y-2 divide-teal-200">
+                <div class="flex flex-col">
+                    <h1 class="text-5xl mt-4">{frontmatter.title}</h1>
+                    <p class="text-end">{frontmatter.date}</p>
+                </div>
+                <p></p>
+            </div>
+            <div>
+                <slot/>
+            </div>
+        </div>
+        <div class="flex-none w-52">
+            <PostSide/>
+        </div>
     </div>
 </DefaultLayout>

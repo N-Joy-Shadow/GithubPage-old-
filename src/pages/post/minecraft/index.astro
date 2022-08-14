@@ -1,14 +1,19 @@
 ---
 import ListCard from "../../../components/post-list/ListCard.astro";
 import DefaultLayout from "../../../layouts/DefaultLayout.astro";
+import McLayout from "../../../layouts/post/McLayout.astro";
 
-const posts = await Astro.glob('./*.mdx');
+const posts = await Astro.glob('./**/*.mdx');
+
+const frontmatter = {
+    title : "Minecraft",
+    description : "hi"
+}
 ---
 
-<DefaultLayout>
-    
+<DefaultLayout frontmatter={frontmatter}>
 <ul>
-    {posts.map( x=> 
+    {posts.map(x=> 
     <li>
         <ListCard url={x.url} title={x.frontmatter.title} image={x.frontmatter.image}
         description={x.frontmatter.description} date={x.frontmatter.date}/>
