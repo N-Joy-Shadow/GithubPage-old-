@@ -2,10 +2,42 @@
 const { item } = Astro.props
 ---
 
-<div class="sticky top-1 m-2 outline rounded-xl p-2">
-    <details>
-        <summary>hi</summary>
-        <span>gddg</span>
+<div class="sticky top-1 m-2 outline outline-teal-400 rounded-xl pt-2 bg-teal-200 shadow-xl top-0 mt-4">
+    <details class="">
+        <summary class="px-2 pb-2 summary-mark">AE2</summary>
+        <span class="py-2 span-open">
+            <div class="px-1 w-full bg-teal-50">
+                - AE의 기본
+            </div>
+        </span>
     </details>
+    <style>
+
+
+
+        .summary-mark{
+            display: flex;
+            justify-content: space-between;
+            &:marker {
+                content: none;
+            }
+            &::after{
+                margin-right: 0.5rem;
+                transform: rotate(-180deg);
+                content: "\276F";
+                display: inline-block;
+                transition: transform 0.3s;
+            }
+        }
+        details[open] > .summary-mark::after{
+            transform: rotate(-270deg);
+            
+        }
+        details[open] > .span-open{
+            animation: open 0.3s  ease-out;
+        }
+
+        
+    </style>
 
 </div>
