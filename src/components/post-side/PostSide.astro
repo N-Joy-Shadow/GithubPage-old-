@@ -1,16 +1,37 @@
 ---
-const { item } = Astro.props
+export interface propsItem {
+    title: string,
+    sub: subItem[]
+}
+export interface subItem {
+    subtitle: string,
+    subUrl: string
+}
+
+
+const { item,title } = Astro.props
+const items : propsItem[] = item
+console.log(title)
 ---
 
-<div class="sticky top-1 m-2 outline outline-teal-400 rounded-xl pt-2 bg-teal-200 shadow-xl top-0 mt-4">
-    <details class="">
-        <summary class="px-2 pb-2 summary-mark">AE2</summary>
-        <span class="py-2 span-open">
-            <div class="px-1 w-full bg-teal-50">
-                - AE의 기본
-            </div>
-        </span>
-    </details>
+<div class="sticky m-2 rounded-xl pt-2 bg-teal-200 shadow-xl top-1 mt-4">
+    <p class="m-auto justify-center">{title}</p>
+    {items.map(x=>(
+        <details>
+            <summary class="px-2 pb-2 summary-mark">{x.title}</summary>
+                <span class="py-2">
+                    <ul>
+                        {x.sub.map(y =>(
+                            <li class="px-1 w-full bg-teal-50">
+                                <a href={y.subUrl}>{y.subtitle}</a>
+                            </li>
+                        ))} 
+                    </ul>
+                </span>
+            
+        </details>
+    ))}
+    
     <style>
 
 

@@ -1,0 +1,16 @@
+---
+import RouteBtn from "./RouteBtn.astro";
+
+const { route } = Astro.props
+---
+
+<div class="w-full flex justify-between mt-4 bg-transparent">
+    <div>
+
+    </div>
+    <div class="flex flex-row">
+        <RouteBtn url={"/"} name={"before"}/>
+        <RouteBtn url={"/"} name={"next"}/>
+    </div>
+
+</div>

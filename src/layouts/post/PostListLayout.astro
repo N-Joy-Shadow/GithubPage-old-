@@ -1,0 +1,18 @@
+---
+import DefaultLayout from "../DefaultLayout.astro";
+import PostSide from "../../components/post-side/PostSide.astro";
+
+const {title, description,item,head } = Astro.props;
+console.log(head)
+
+---
+<DefaultLayout title={title} description={description}>
+    <div class="w-full flex flex-row ">
+        <div class="m-1 p-2 mt-4 top-0 w-full">
+            <slot/>
+        </div>
+        <div class="flex-none w-52">
+            <PostSide item={item} title={head}/>
+        </div>
+    </div>
+</DefaultLayout>
