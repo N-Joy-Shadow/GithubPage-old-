@@ -6,8 +6,7 @@ import PostListLayout from "./PostListLayout.astro";
 const { frontmatter } = Astro.props
 const posts = await Astro.glob("../../pages/post/minecraft/**/*mdx")
 const items = Index(posts)
-import fs from 'fs'
-console.log(fs.readdirSync("./src"))
+
 ---
 <PostListLayout title={frontmatter.title} description={frontmatter.description} item={items} head={"마인크래프트"}>
     <div class="grow  rounded-xl bg-teal-50 shadow-xl px-4">
