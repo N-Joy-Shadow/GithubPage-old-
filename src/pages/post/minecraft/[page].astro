@@ -2,15 +2,16 @@
 import ListCard from "../../../components/post/list/ListCard.astro";
 import PostListLayout from "../../../layouts/post/PostListLayout.astro";
 import Index from "../../../utils/IndexMDX";
-
 import  BasicPagination from "../../../components/post/list/Paginate.tsx"
 
+
+
 const posts = await Astro.glob('./**/*.mdx');
-    const items = Index(posts)
+const items = Index(posts)
 export async function getStaticPaths({ paginate }) {
     const posts = await Astro.glob('./**/*.mdx');
 
-  return paginate(posts, { pageSize: 5 });
+  return paginate(posts, { pageSize: 2 });
 }
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
@@ -25,9 +26,8 @@ const { page } = Astro.props;
             description={x.frontmatter.description} date={x.frontmatter.date} tag={x.frontmatter.tag}/>
         </li>)}
     </ul>
-    <BasicPagination client:only="react"/>
-    <h1>Page {page.currentPage}</h1>
-    {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
-    {page.url.next ? <a href={page.url.next}>Next</a> : null}
+    <div class="m-auto mt-4">
+        <BasicPagination page={page}  client:only="react"/>
+    </div>
 </PostListLayout>
 

@@ -15,7 +15,7 @@ if(tags != undefined){
             <div class="w-full block mr-10">
                 <div class="divide-y-2 divide-teal-200 py-2">
                     <h1 class="text-4xl">{title}</h1>
-                    <p class="text-start">Date : {date}</p>
+                    {date ? <p class="text-start">Date : {date}</p> : null}
                 </div>
                 <div class="inline-block">
                     <p class="text-lg truncate relative whitespace-pre-wrap">{description}</p>
@@ -23,7 +23,7 @@ if(tags != undefined){
             </div>
         </div>
     </a>
-    <div class="grid grid-flow-col auto-cols-max gap-3 m-4">
+    {tags ? <div class="grid grid-flow-col auto-cols-max gap-3 m-4">
         {tags.map((x :string) =>(<ItemTag tag={x}></ItemTag>))}
-    </div>
+    </div> : null}
 </div>
