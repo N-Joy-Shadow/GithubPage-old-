@@ -13,7 +13,7 @@ const { item,title } = Astro.props
 const items : propsItem[] = item
 ---
 
-<div class="sticky m-2 rounded-xl pt-2 bg-teal-200 shadow-xl top-1 mt-4 outline outline-teal-50">
+<div class="sticky m-2 rounded-xl pt-2 bg-teal-200 shadow-xl top-1 mt-4 outline outline-teal-50 select-none">
     <p class="m-auto text-center">{title}</p>
     {items.map(x=>(
         <details>

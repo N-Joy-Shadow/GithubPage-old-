@@ -1,4 +1,5 @@
 ---
+import SearchBar from "../../components/post/list/SearchBar.astro";
 import PostSide from "../../components/post/side/PostSide.astro";
 import DefaultLayout from "../DefaultLayout.astro";
 
@@ -8,8 +9,13 @@ const {title, description,item,head } = Astro.props;
 ---
 <DefaultLayout title={title} description={description}>
     <div class="w-full flex flex-row ">
-        <div class="m-1 p-2 mt-4 top-0 w-full">
-            <slot/>
+        <div class=" p-2 mt-2 top-0 w-full">
+            <div class="flex flex-col">
+                <div class="mb-4 mx-1">
+                    <SearchBar/>
+                </div>
+                <slot/>
+            </div>
         </div>
         <div class="flex-none w-64">
             <PostSide item={item} title={head}/>
