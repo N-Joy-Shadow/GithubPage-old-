@@ -27,7 +27,7 @@ const { page } = Astro.props;
         </li>)}
     </ul>
     <div class="m-auto mt-4">
-        <BasicPagination page={page}  client:only="react"/>
+        <BasicPagination page={page} astro={Astro.url}  client:only="react"/>
     </div>
 </PostListLayout>
 
